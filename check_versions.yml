@@ -21,9 +21,9 @@
       block:
         - name: CREATE AN INCIDENT
           snow_record:
-            username: "{{ SN_USERNAME }}"
-            password: "{{ SN_PASSWORD }}"
-            instance: "{{ SN_INSTANCE }}"
+            username: "admin"
+            password: "GwWyg3KES7pz"
+            instance: "dev67295"
             state: present
             table: incident
             data:
