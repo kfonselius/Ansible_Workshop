@@ -38,3 +38,4 @@
         - name: VISUAL OUTPUT OF INCIDENT NUMBER
           debug:
             var: snow_var.record.number
+       when: true
