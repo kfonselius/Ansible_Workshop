@@ -56,7 +56,7 @@
         - http://{{ ansible_host }}:8080
         - http://{{ ansible_host }}:8081
 
-     handlers:
+  handlers:
     - name: restart iis service
       win_service:
         name: W3Svc
