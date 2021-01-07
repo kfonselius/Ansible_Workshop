@@ -6,4 +6,5 @@
 
   tasks:
     - name: Spin Up Windows VM
-      msg: "{{ test_message }}"
+      debug:
+        msg: "{{ test_message }}"
