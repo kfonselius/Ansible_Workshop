@@ -13,4 +13,4 @@
     register: check_node_version
 
   - debug:
-      msg: Python Version is {{ check_python_version }}  and NodeJS version is 
+      msg: Python Version is {{ check_python_version.[3] }}  and NodeJS version is 
