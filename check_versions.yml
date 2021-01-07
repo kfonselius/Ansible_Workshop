@@ -34,7 +34,7 @@
     register: snow_var
     delegate_to: localhost
 
-        - name: VISUAL OUTPUT OF INCIDENT NUMBER
-          debug:
-            var: snow_var.record.number
-       when: true
+  - name: VISUAL OUTPUT OF INCIDENT NUMBER
+    debug:
+      var: snow_var.record.number
+
