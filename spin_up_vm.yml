@@ -1,0 +1,9 @@
+---
+- hosts: windows
+  name: This is a play within a playbook
+  vars:
+    test_message: "Spinning up VM"
+
+  tasks:
+    - name: Spin Up Windows VM
+      msg: "{{ test_message }}"
