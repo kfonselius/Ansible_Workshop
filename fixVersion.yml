@@ -1,0 +1,49 @@
+
+---
+- name: Check all packages using Chocolatey
+  hosts: all
+  gather_facts: false
+  tasks:
+  
+  - name: Update all installed packages
+    win_chocolatey:
+      name: all
+      state: latest
+
+  - name: Check python version
+    win_command: python --version
+    register: check_python_version
+
+  - name: Check nodejs version
+    win_command: node --version
+    register: check_node_version
+
+  - debug:
+      msg: Python Version is {{ check_python_version.stdout }}  and NodeJS version is 
+
+
+
+  - name: MARK THE TICKET AS RESOLVED
+      snow_record:
+        username: "{{ SN_USERNAME }}"
+        password: "{{ SN_PASSWORD }}"
+        instance: "{{ SN_INSTANCE }}"
+        state: present
+        table: incident
+        number: "{{ incident_num }}"
+        data:
+          state: 6
+          comments: "Python has been updated, marking resolved"
+      when: incident_num is defined
+
+   - name: MARK THE TICKET AS CLOSED
+      snow_record:
+        username: "{{ SN_USERNAME }}"
+        password: "{{ SN_PASSWORD }}"
+        instance: "{{ SN_INSTANCE }}"
+        number: "{{ incident_num }}"
+        state: present
+        table: incident
+        data:
+          state: 7
+          comments: "Python has been updated, closing ticket"
