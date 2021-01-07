@@ -24,17 +24,16 @@
 
 
   - name: MARK THE TICKET AS RESOLVED
-      snow_record:
-        username: "admin"
-        password: "GwWyg3KES7pz"
-        instance: "dev67295"
-        state: present
-        table: incident
-        number: "{{ incident_num }}"
-        data:
-          state: 6
-          comments: "Python has been updated, marking resolved"
-      when: incident_num is defined
+    snow_record:
+      username: "admin"
+      password: "GwWyg3KES7pz"
+      instance: "dev67295"
+      state: present
+      table: incident
+      number: "{{ incident_num }}"
+      data:
+        state: 6
+        comments: "Python has been updated, marking resolved"
 
    - name: MARK THE TICKET AS CLOSED
       snow_record:
