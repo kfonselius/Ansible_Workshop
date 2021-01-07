@@ -36,13 +36,13 @@
         comments: "Python has been updated, marking resolved"
 
    - name: MARK THE TICKET AS CLOSED
-      snow_record:
-        username: "admin"
-        password: "GwWyg3KES7pz"
-        instance: "dev67295"
-        number: "{{ incident_num }}"
-        state: present
-        table: incident
-        data:
-          state: 7
-          comments: "Python has been updated, closing ticket"
+     snow_record:
+       username: "admin"
+       password: "GwWyg3KES7pz"
+       instance: "dev67295"
+       number: "{{ incident_num }}"
+       state: present
+       table: incident
+       data:
+         state: 7
+         comments: "Python has been updated, closing ticket"
