@@ -14,3 +14,27 @@
 
   - debug:
       msg: Python Version is {{ check_python_version.stdout }}  and NodeJS version is 
+
+
+
+- name: OPEN AN INCIDENT (SERVICENOW) IF PYTHON IS OUT OF DATE
+      block:
+        - name: CREATE AN INCIDENT
+          snow_record:
+            username: "{{ SN_USERNAME }}"
+            password: "{{ SN_PASSWORD }}"
+            instance: "{{ SN_INSTANCE }}"
+            state: present
+            table: incident
+            data:
+              short_description: "PYTHON is out of date on {{inventory_hostname}}"
+              severity: 3
+              priority: 2
+              caller_id: "System Administrator"
+              comments: "Python is out of date on {{inventory_hostname}}"
+          register: snow_var
+          delegate_to: localhost
+
+        - name: VISUAL OUTPUT OF INCIDENT NUMBER
+          debug:
+            var: snow_var.record.number
