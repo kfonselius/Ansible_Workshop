@@ -1,4 +1,8 @@
-tasks:
+---
+- name: Running OpenScap
+  hosts: all
+  gather_facts: false
+  tasks:
   - name: run insights compliance
     import_role:
       name: redhat.insights.compliance
